@@ -5,20 +5,22 @@ const mailStyle = {
   fontSize: 2 + "rem"
 }
 
-export const Profile = () => {
+export const Profile = (props) => {
+  let user = props.function();     
+  console.log(user);
+  
   return (
     <>
-      <h3>Страница с профилем</h3>;
+      <h3>Страница с профилем</h3>
       <div className="row">
         <div className="col-md-8">
-          <h4 className={styles.name}>Фамилия имя: <span>Ваня Иванов</span></h4>
-          <p className={styles.id} >Id: <span>2</span></p>
-          <p style={mailStyle}>Email: <span>ii@ya.ru</span></p>
-          <p style={{color: "red", fontStyle: "italic", fontSize: 24}}></p>
-          <p>Обо мне: <span>Я расскажу о себе</span></p>
+          <h4 className={styles.name}>Фамилия имя: <span>{user.lastname} {user.name}</span></h4>
+          <p className={styles.id} >Id: <span>{user.id}</span></p>
+          <p style={mailStyle}>Email: <span>{user.email}</span></p>
+          <p style={{color: "red", fontStyle: "italic", fontSize: 24}}>Обо мне: <span>{user.about}</span></p>
         </div>
         <div className="col-md-4">
-          <img className={styles.img} src="https://img.freepik.com/free-psd/3d-illustration-bald-person-with-glasses_23-2149436184.jpg" alt="" />
+          <img className={styles.img} src={user.avatar} alt="" />
         </div>
       </div>
     </>
