@@ -1,12 +1,10 @@
 import { NavLink, Route, Routes } from 'react-router-dom';
 import './App.css';
+import { Profile } from './components/Profile';
+import { Friends } from './components/Friends';
+import { Shop } from './components/Shop';
+import { Settings } from './components/Settings';
 
-const Profile = () => {
-  return <h3>Страница с профилем</h3>;
-};
-const Friends = () => {
-  return <h3>Страница друзей</h3>;
-};
 
 function App() {
   return (
@@ -36,6 +34,8 @@ function App() {
           <Route path="/" element={<h2>Главная страница, выберите из меню слева</h2>}/>
           <Route path="/profile" element={<Profile />}/>
           <Route path="/friends" element={<Friends />}/>
+          <Route path="/shop" element={<Shop />}/>
+          <Route path='/settings' element={<Settings/>}/>
         </Routes>
       </div>
     </div>
