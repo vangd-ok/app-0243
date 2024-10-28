@@ -33,7 +33,7 @@ function App(props) {
       <div className="col-sm-8">
         <Routes>
           <Route path="/" element={<h2>Главная страница, выберите из меню слева</h2>}/>
-          <Route path="/profile" element={<Profile function={props.functions.key_getUser} />}/>
+          <Route path="/profile/*" element={<Profile function={props.functions.key_getUser} />}/>
           <Route path="/friends" element={<Friends function={props.functions.key_getUsers} />}/>
           <Route path="/shop" element={<Shop />}/>
           <Route path='/settings' element={<Settings/>}/>

@@ -1,10 +1,16 @@
+import { NavLink } from "react-router-dom";
+
 const TableRow = (props) => {
   return (
     <tr>
       <th scope="row">{props.index + 1}</th>
-      <td>{props.name} {props.lastname}</td>
-      <td> ----- </td>
-      <td> ----- </td>
+      <td>
+        <NavLink to={"/profile/" + props.id}>
+          {props.name} {props.lastname}
+        </NavLink>
+      </td>
+      <td> {props.email} </td>
+      
     </tr>
   );
 }
@@ -14,7 +20,7 @@ export const Friends = (props) => {
   let usersCount = Object.keys(users).length;
   let userRow = [];
   for (let i = 0; i < usersCount; i++) {
-    userRow.push(<TableRow key={i} index={i} name={users[i].name} lastname={users[i].lastname}/>);
+    userRow.push(<TableRow key={i} index={i} id={users[i].id} name={users[i].name} lastname={users[i].lastname} email={users[i].email}/>);
   }
   return (
     <div className="container-fluid">
