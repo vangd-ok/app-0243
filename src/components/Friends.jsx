@@ -1,40 +1,41 @@
+const TableRow = (props) => {
+  return (
+    <tr>
+      <th scope="row">{props.index + 1}</th>
+      <td>{props.name} {props.lastname}</td>
+      <td> ----- </td>
+      <td> ----- </td>
+    </tr>
+  );
+}
 
-
-export const Friends = () => {
+export const Friends = (props) => {
+  let users = props.function();  
+  let usersCount = Object.keys(users).length;
+  let userRow = [];
+  for (let i = 0; i < usersCount; i++) {
+    userRow.push(<TableRow key={i} index={i} name={users[i].name} lastname={users[i].lastname}/>);
+  }
   return (
     <div className="container-fluid">
       <div className="rou">
-        <h3>Список друзей</h3>
-        <p>Доп инфо</p>
+        <div className="col-12">
+          <h3>Список друзей</h3>
+          <p>Доп инфо</p>
+        </div>
       </div>
       <div className="row">
       <table className="table table-bordered">
         <thead>
         <tr>
           <th scope="col">#</th>
-          <th scope="col">First</th>
-          <th scope="col">Last</th>
+          <th scope="col">Имя и Фамилия</th>
+          <th scope="col">Email</th>
           <th scope="col">Handle</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td colspan="2">Larry the Bird</td>
-          <td>@twitter</td>
-        </tr>
+        {userRow}
       </tbody>
       </table>
       </div>
